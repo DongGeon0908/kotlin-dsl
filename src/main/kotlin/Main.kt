@@ -1,7 +1,17 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    testPrint {
+        2.plus()
+    }
+}
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+private fun Int.plus(): Int {
+    return this + 1
+}
+
+fun <T> testPrint(block: () -> T): T {
+    val a = block.invoke()
+
+    println(a)
+
+    return a
 }
